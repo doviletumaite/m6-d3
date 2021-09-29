@@ -1,5 +1,7 @@
 import express from "express";
 import db from "../../db/models/index.js";
+import s from "sequelize";
+const { Op } = s;
 const router = express.Router();
 const { product, review } = db;
 router
@@ -8,6 +10,12 @@ router
     try {
       const products = await product.findAll({
         include: review,
+        where: req.query.search ? {
+            [Op.or]: [
+              {name: {[Op.iLike]: `%${req.query.search}%`}},
+              {category: {[Op.iLike]: `%${req.query.search}%`}}
+            ]
+          } : {},
       });
       res.send(products);
     } catch (error) {
