@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { connectDB } from "./db/index.js";
+import db from "./db/models/index.js"
 import productRouter from "./services/products/index.js";
 import reviewRouter from "./services/reviews/index.js";
 

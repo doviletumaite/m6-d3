@@ -17,6 +17,7 @@ router
             ]
           } : {},
       });
+      console.log("reviews:", review)
       res.send(products);
     } catch (error) {
       console.log(error);

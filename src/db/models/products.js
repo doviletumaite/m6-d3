@@ -19,11 +19,6 @@ const product = sequelize.define("product", {
     price: {
         type: DataTypes.FLOAT,
         allowNull: false,
-      },
-      createdAt: {
-        type: 'TIMESTAMP',
-        defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
-        allowNull: false,
       }
   });
   
